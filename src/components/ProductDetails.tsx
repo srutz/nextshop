@@ -4,8 +4,8 @@ import { Rating } from "./Rating";
 
 export function ProductDetails({ product }: { product: Product }) {
   return (
-    <div className="h-1 items-start grow flex flex-col gap-8 bg-white p-8 overflow-y-auto">
-      <div className="flex flex-col gap-8">
+    <div className="h-1 self-stretch items-start grow flex flex-col gap-8 bg-white px-8 pb-8 overflow-y-auto">
+      <div className="self-stretch flex flex-col gap-8">
         {/* Images Section */}
         <div className="flex flex-row gap-4 overflow-x-auto">
           {product.images.map((image, index) => (

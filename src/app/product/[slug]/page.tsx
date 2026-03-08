@@ -1,11 +1,14 @@
+import Link from "next/link"
 import { notFound } from "next/navigation"
 import type { Product } from "@/components/ProductCard"
 import { ProductDetails } from "@/components/ProductDetails"
 
 //export const dynamic = 'force-dynamic'
 
+const NUMBER_OF_PRODUCTS = 194
+
 export async function generateStaticParams() {
-  return Array.from({ length: 194 }, (_, i) => ({
+  return Array.from({ length: NUMBER_OF_PRODUCTS }, (_, i) => ({
     slug: (i + 1).toString(),
   }))
 }
@@ -16,18 +19,26 @@ export default async function Page({ params }: { params: Promise<{ slug: string 
     notFound()
   }
 
+  const prevSlug = product.id > 1 ? (product.id - 1).toString() : "1"
+  const nextSlug = product.id < NUMBER_OF_PRODUCTS ? (product.id + 1).toString() : NUMBER_OF_PRODUCTS.toString()
+
   return (
-    <ProductDetails product={product} />
+    <div className="h-1 grow flex flex-col items-center overflow-y-auto">
+      <div className="my-2 flex gap-8 items-center">
+        <Link href={"/product/" + prevSlug} className="text-zinc-500">Previous Product</Link>
+        <Link href={"/product"} className="text-zinc-500">All Products</Link>
+        <Link href={"/product/" + nextSlug} className="text-zinc-500">Next Product</Link>
+      </div>
+      <ProductDetails product={product} />
+    </div>
   )
 }
 
 async function getProductBySlut(slug: string): Promise<Product | null> {
   const url = `https://dummyjson.com/products/${slug}`
-  console.time("fetch product details for slug: " + slug)
   const res = await fetch(url, {
     //cache: "no-store",
   })
-  console.timeEnd("fetch product details for slug: " + slug)
   if (!res.ok || res.status === 404) {
     return null
   }

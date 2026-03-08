@@ -1,4 +1,7 @@
+"use client"
+
 import Link from "next/link";
+import { echo } from "@/lib/serverutils";
 
 export function Menubar() {
   return (
@@ -6,6 +9,8 @@ export function Menubar() {
       THE SHOP
       <Link href={"/"} >Home</Link>
       <Link href={"/product"} >Products</Link>
+      <div className="grow"></div>
+      <button type="button" onClick={() => echo("run code")}>Run code</button>
     </div>
   )
 }

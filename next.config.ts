@@ -11,6 +11,14 @@ const nextConfig: NextConfig = {
       },
     ],
   },
+  /*
+  experimental: {
+    staleTimes: {
+      dynamic: 180,  // dynamic pages
+      static: 180,  // static pages
+    },
+  },
+  */
   logging: {
     fetches: {
       fullUrl: true,
