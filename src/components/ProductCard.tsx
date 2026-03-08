@@ -39,6 +39,7 @@ export type Product = {
   };
   images: string[];
   thumbnail: string;
+  blurDataURL?: string;
 };
 
 export type ProductsReponse = {
@@ -56,11 +57,21 @@ export type ProductCategory = {
 
 export function ProductCard({ product }: { product: Product }) {
   return (
-    <Link className="bg-white shadow-xl border border-zinc-300 rounded-xl p-4 flex flex-col gap-2" href={`/product/${product.id}`}>
-      <Image src={product.thumbnail} alt={product.title} className="self-center object-cover rounded"
+    <Link
+      className="bg-white shadow-xl border border-zinc-300 rounded-xl p-4 flex flex-col gap-2"
+      href={`/product/${product.id}`}
+    >
+      <Image
+        src={product.thumbnail}
+        alt={product.title}
+        className="self-center object-cover rounded"
         width={200}
         height={200}
-
+        placeholder="blur"
+        blurDataURL={
+          product.blurDataURL ||
+          "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgZmlsbD0iI2YzZjRmNiIvPjwvc3ZnPg=="
+        }
       />
       <div className="text-lg font-bold">{product.title}</div>
       <div className="text-sm text-muted-foreground">{product.category}</div>
