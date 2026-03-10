@@ -11,19 +11,21 @@ const nextConfig: NextConfig = {
       },
     ],
   },
-  /*
   experimental: {
+    workerThreads: false,
+    cpus: 2,
+    /*
     staleTimes: {
       dynamic: 180,  // dynamic pages
       static: 180,  // static pages
     },
+    */
   },
-  */
   logging: {
     fetches: {
       fullUrl: true,
-    }
-  }
+    },
+  },
 };
 
 export default nextConfig;
