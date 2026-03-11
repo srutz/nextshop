@@ -1,7 +1,7 @@
 "use client";
 
 import { Link } from "next-view-transitions";
-import { echo } from "@/lib/serverutils";
+import { multiply } from "@/lib/serverutils";
 
 export function Menubar() {
   return (
@@ -10,7 +10,12 @@ export function Menubar() {
       <Link href={"/"}>Home</Link>
       <Link href={"/product"}>Products</Link>
       <div className="grow"></div>
-      <button type="button" onClick={() => echo("run code")}>
+      <button
+        type="button"
+        onClick={async () => {
+          console.log((await multiply(3, 7)) + 1);
+        }}
+      >
         Run code
       </button>
     </div>

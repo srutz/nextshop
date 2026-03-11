@@ -18,7 +18,7 @@ export default async function Page({
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
-  const product = await getProductBySlut(slug);
+  const product = await getProductBySlug(slug);
   if (!product) {
     notFound();
   }
@@ -47,7 +47,7 @@ export default async function Page({
   );
 }
 
-async function getProductBySlut(slug: string): Promise<Product | null> {
+async function getProductBySlug(slug: string): Promise<Product | null> {
   const url = `https://dummyjson.com/products/${slug}`;
   const res = await fetch(url, {
     //cache: "no-store",

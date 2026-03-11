@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { ViewTransitions } from "next-view-transitions";
 import { Menubar } from "@/components/Menubar";
+import { Providers } from "@/components/Providers";
 import { cn } from "@/lib/utils";
 
 const geistSans = Geist({
@@ -35,8 +36,10 @@ export default function RootLayout({
             "flex flex-col overflow-y-auto",
           )}
         >
-          <Menubar></Menubar>
-          {children}
+          <Providers>
+            <Menubar></Menubar>
+            {children}
+          </Providers>
         </body>
       </html>
     </ViewTransitions>

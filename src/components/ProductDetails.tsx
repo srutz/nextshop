@@ -1,3 +1,6 @@
+"use client";
+
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import Image from "next/image";
 import type { Product } from "./ProductCard";
 import { Rating } from "./Rating";

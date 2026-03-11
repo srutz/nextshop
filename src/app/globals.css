@@ -27,5 +27,5 @@ body {
 
 ::view-transition-old(root),
 ::view-transition-new(root) {
-  animation-duration: 150ms; /* default is ~250ms */
+  animation-duration: 1500ms; /* default is ~250ms */
 }

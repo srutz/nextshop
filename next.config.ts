@@ -12,8 +12,8 @@ const nextConfig: NextConfig = {
     ],
   },
   experimental: {
-    workerThreads: false,
-    cpus: 2,
+    //workerThreads: false,
+    //cpus: 2,
     /*
     staleTimes: {
       dynamic: 180,  // dynamic pages
@@ -22,9 +22,11 @@ const nextConfig: NextConfig = {
     */
   },
   logging: {
+    /*
     fetches: {
       fullUrl: true,
     },
+    */
   },
 };
 
