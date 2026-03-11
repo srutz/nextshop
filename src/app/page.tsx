@@ -1,6 +1,9 @@
 import { Link } from "next-view-transitions";
 import type { ProductCategory } from "@/components/ProductCard";
 
+// Force static generation at build time
+export const dynamic = "force-static";
+
 export default async function Home() {
   const res = await fetch("https://dummyjson.com/products/categories");
   const categories = (await res.json()) as ProductCategory[];

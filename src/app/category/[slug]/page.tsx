@@ -31,7 +31,6 @@ export default async function Page({ params }: PageParamType) {
 
   return (
     <div className="h-1 grow flex flex-col items-center gap-4 overflow-y-auto">
-      <Sub></Sub>
       <div className="bg-zinc-100 py-4 px-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
         {data.products.map((product) => (
           <ProductCard key={product.id} product={product} />
